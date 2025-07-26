@@ -85,7 +85,7 @@ Autentica a un usuario registrado y retorna un token JWT.
   "data": {
     "userId": 1,
     "firstName": "Juan",
-    "lastName": "Gomez Perez"",
+    "lastName": "Gomez Perez",
     "phoneNumber": "5523456791"
   },
   "success": true,
