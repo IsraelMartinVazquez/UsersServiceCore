@@ -86,13 +86,13 @@ Autentica a un usuario registrado y retorna un token JWT.
     "userId": 1,
     "firstName": "Juan",
     "lastName": "Gomez Perez",
-    "phoneNumber": "5523456791"
+    "phoneNumber": "5523456791",
+    "token": "eyJhbGciOiJIUzI1NiIsInR..."
   },
   "success": true,
   "message": "",
   "errors": [],
-  "statusCode": 200,
-  "token": "eyJhbGciOiJIUzI1NiIsInR..."
+  "statusCode": 200
 }
 ```
 

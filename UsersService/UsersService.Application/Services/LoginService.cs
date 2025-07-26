@@ -16,6 +16,7 @@ namespace UsersService.Application.Services
         private readonly IValidator<LoginRequest> _validator;
         private readonly IMapper _mapper;
         private readonly ILoginRepository _loginRepository;
+        private readonly IJwtRepository _jwtRepository;
 
         /// <summary>
         /// Inicializa una nueva instancia de <see cref="LoginService"/>.
@@ -23,11 +24,13 @@ namespace UsersService.Application.Services
         /// <param name="validator">Validador para la solicitud de login.</param>
         /// <param name="mapper">AutoMapper para conversiones entre entidades y DTOs.</param>
         /// <param name="loginRepository">Repositorio para operaciones de login.</param>
-        public LoginService(IValidator<LoginRequest> validator, IMapper mapper, ILoginRepository loginRepository)
+        /// <param name="jwtRepository">Repositorio para operaciones de jwt.</param>
+        public LoginService(IValidator<LoginRequest> validator, IMapper mapper, ILoginRepository loginRepository, IJwtRepository jwtRepository)
         {
             _validator = validator;
             _mapper = mapper;
             _loginRepository = loginRepository;
+            _jwtRepository = jwtRepository;
         }
 
         /// <summary>
@@ -96,6 +99,7 @@ namespace UsersService.Application.Services
 
                 response.Success = true;
                 response.Data = _mapper!.Map<LoginResponse>(dBGetUser.Data);
+                response.Data.Token = _jwtRepository.GenerateToken(dBGetUser.Data);
                 response.StatusCode = 200;
                 return response;
             }

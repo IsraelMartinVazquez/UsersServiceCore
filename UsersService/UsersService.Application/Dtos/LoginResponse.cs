@@ -24,5 +24,10 @@
         /// Número telefónico del usuario.
         /// </summary>
         public string PhoneNumber { get; set; } = string.Empty;
+
+        /// <summary>
+        /// Token.
+        /// </summary>
+        public string Token { get; set; } = string.Empty;
     }
 }
