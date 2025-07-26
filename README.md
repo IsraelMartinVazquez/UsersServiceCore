@@ -47,8 +47,10 @@ Registra un nuevo usuario en la base de datos.
 **Request body:**
 ```json
 {
-  "name": "Juan",
-  "email": "juan@example.com",
+  "FirstName": "Juan",
+  "LastName": "Gomez Perez",
+  "Email": "juan@example.com",
+  "PhoneNumber": "5523456791",
   "passwordHash": "3117ef5bd0a1c3e..."
 }
 ```
@@ -57,8 +59,9 @@ Registra un nuevo usuario en la base de datos.
 ```json
 {
   "success": true,
-  "message": "User registered successfully.",
-  "data": 1
+  "message": "",
+  "errors": [],
+  "statusCode": 200
 }
 ```
 
@@ -79,8 +82,16 @@ Autentica a un usuario registrado y retorna un token JWT.
 **Respuesta exitosa:**
 ```json
 {
+  "data": {
+    "userId": 1,
+    "firstName": "Juan",
+    "lastName": "Gomez Perez"",
+    "phoneNumber": "5523456791"
+  },
   "success": true,
-  "message": "Login successful.",
+  "message": "",
+  "errors": [],
+  "statusCode": 200,
   "token": "eyJhbGciOiJIUzI1NiIsInR..."
 }
 ```
